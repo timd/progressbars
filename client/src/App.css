@@ -13,18 +13,9 @@ header {
   font-size: 1.1rem;
 }
 
-.coming-soon {
-  padding: 2rem;
-  border: 1px dashed var(--border-color);
-  border-radius: 16px;
-  color: var(--text-muted);
-  font-style: italic;
-}
-
-footer {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-color);
-  color: var(--text-muted);
-  font-size: 0.9rem;
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  width: 100%;
 }

@@ -14,7 +14,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ label, progress, subLabel }) 
     <div className="progress-bar-container">
       <div className="progress-bar-header">
         <span className="progress-bar-label">{label}</span>
-        <span className="progress-bar-percentage">{percentage.toFixed(6)}%</span>
+        <span className="progress-bar-percentage">{percentage.toFixed(2)}%</span>
       </div>
       <div className="progress-bar-track">
         <div
