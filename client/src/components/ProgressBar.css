@@ -5,6 +5,10 @@
     padding: 1.5rem;
     backdrop-filter: var(--glass-effect);
     transition: transform 0.2s ease, border-color 0.2s ease;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .progress-bar-container:hover {
@@ -76,5 +80,44 @@
     margin-top: 0.75rem;
     font-size: 0.85rem;
     color: var(--text-muted);
-    text-align: left;
+    text-align: center;
+}
+
+/* Light Theme ASCII Styling */
+.progress-bar-container.light {
+    border: 2px solid #000000;
+    background: #ffffff !important;
+    border-radius: 0 !important;
+    padding: 1.5rem;
+    box-shadow: none;
+    transition: none;
+}
+
+.progress-bar-container.light:hover {
+    transform: none;
+    border-color: #000000;
+}
+
+.progress-bar-container.light .progress-bar-label,
+.progress-bar-container.light .progress-bar-percentage {
+    color: #000000 !important;
+}
+
+.progress-bar-ascii {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0;
+    line-height: 1.25;
+    color: #000000;
+    margin: 0;
+    white-space: pre;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.progress-bar-container.light .progress-bar-footer {
+    color: #444444 !important;
 }

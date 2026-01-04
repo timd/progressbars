@@ -12,6 +12,11 @@ function App() {
   const [millenniumProgress, setMillenniumProgress] = useState(0)
   const [solarProgress, setSolarProgress] = useState(0)
   const [currentTime, setCurrentTime] = useState(new Date())
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark')
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark')
+  }
 
   useEffect(() => {
     const updateProgress = () => {
@@ -102,9 +107,14 @@ function App() {
   const endOfMillennium = startOfMillennium + 999
 
   return (
-    <div className="app-container">
+    <div className="app-container" data-theme={theme}>
       <header>
-        <h1>Life Progress</h1>
+        <div className="header-main">
+          <h1>Life Progress</h1>
+          <button className="theme-toggle" onClick={toggleTheme}>
+            {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+          </button>
+        </div>
         <p className="subtitle">Visualizing time on various scales</p>
       </header>
 
@@ -113,50 +123,62 @@ function App() {
           label="Daily"
           progress={dailyProgress}
           subLabel={`Current Time: ${formattedTime}`}
+          precision={3}
+          theme={theme}
         />
 
         <ProgressBar
           label="Weekly"
           progress={weeklyProgress}
           subLabel={`Current Day: ${dayName} (Day ${currentTime.getDay() + 1} of 7)`}
+          precision={1}
+          theme={theme}
         />
 
         <ProgressBar
           label="Monthly"
           progress={monthlyProgress}
           subLabel={`Current Month: ${monthName} (Day ${currentTime.getDate()} of ${new Date(year, currentTime.getMonth() + 1, 0).getDate()})`}
+          precision={1}
+          theme={theme}
         />
 
         <ProgressBar
           label="Yearly"
           progress={yearlyProgress}
           subLabel={`Current Year: ${year} (Day ${dayOfYear} of ${totalDaysInYear})`}
+          theme={theme}
         />
 
         <ProgressBar
           label="Decade"
           progress={decadeProgress}
           subLabel={`Period: ${startOfDecade}-${endOfDecade}`}
+          precision={0}
+          theme={theme}
         />
 
         <ProgressBar
           label="Century"
           progress={centuryProgress}
           subLabel={`Period: ${startOfCentury}-${endOfCentury}`}
+          precision={0}
+          theme={theme}
         />
 
         <ProgressBar
           label="Millennium"
           progress={millenniumProgress}
           subLabel={`Period: ${startOfMillennium}-${endOfMillennium}`}
+          theme={theme}
         />
 
         <ProgressBar
           label="Solar Lifetime"
           progress={solarProgress}
           subLabel="Total lifespan: ~10 billion years"
+          theme={theme}
         />
-
       </main>
     </div>
   )

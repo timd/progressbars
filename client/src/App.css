@@ -1,16 +1,42 @@
 .app-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 header {
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+}
+
+.theme-toggle {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: #ffffff;
+  /* Default for Dark mode */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: var(--glass-effect);
+}
+
+.theme-toggle:hover {
+  border-color: #a855f7;
+  transform: translateY(-1px);
 }
 
 .subtitle {
   color: var(--text-muted);
   font-size: 1.1rem;
+  text-align: left;
 }
 
 main {
@@ -18,4 +44,10 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
   width: 100%;
+}
+
+[data-theme='light'] .theme-toggle {
+  background: #1a1a1a;
+  border-color: #333333;
+  color: #ffffff;
 }
